@@ -27,7 +27,7 @@ export default {
     commit(types.ADD_QUOTE, quote)
   },
 
-  changeTitle ({ commit }, e) {
+  changeQuoteTitle ({ commit }, e) {
     commit(types.CHANGE_QUOTE, e.target.value)
   }
 }

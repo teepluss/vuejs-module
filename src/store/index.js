@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-// import * as actions from './actions'
-// import * as getters from './getters'
+import users from './modules/users'
 import quotes from './modules/quotes'
 
 Vue.use(Vuex)
@@ -14,6 +13,7 @@ export default new Vuex.Store({
   // actions,
   // getters,
   modules: {
+    users: users,
     quotes: quotes
   },
   strict: debug

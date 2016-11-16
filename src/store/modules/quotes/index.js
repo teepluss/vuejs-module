@@ -3,17 +3,17 @@ import actions from './actions'
 import getters from './getters'
 
 const state = {
-  all: [],
+  quotes: [],
   title: 'Quotes'
 }
 
 const mutations = {
   [types.RECEIVE_QUOTES] (state, quotes) {
-    state.all = quotes
+    state.quotes = quotes
   },
   [types.ADD_QUOTE] (state, quote) {
     // console.log('added')
-    state.all.push({
+    state.quotes.push({
       id: 999,
       name: 'CC'
     })

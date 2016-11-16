@@ -2,10 +2,10 @@
 // export const title = state => state.quotes.title
 
 export default {
-  all: state => {
-    return state.all
+  quoteAll: state => {
+    return state.quotes
   },
-  title: state => {
+  quoteTitle: state => {
     return state.title
   }
 }

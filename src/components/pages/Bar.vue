@@ -2,14 +2,19 @@
   <div id="bar">
     <h2>{{ head }}</h2>
     <ul>
-      <li v-for="quote in quotes">
+      <li v-for="quote in quotes.quotes">
         {{ quote.id }}: {{ quote.name }}
       </li>
     </ul>
-    <input :value="title" @input="changeTitle">
+    <input :value="quotes.title" @input="changeQuoteTitle">
     <transition name="fade">
-      <h4 v-if="title !== 'Quotes'">{{ title }}</h4>
+      <h4 v-if="quotes.title !== 'Quotes'">{{ quotes.title }}</h4>
     </transition>
+
+
+    <div>{{ users.users }}</div>
+    <hr />
+    <div>{{ userIsPattanai }}</div>
   </div>
 </template>
 <script>
@@ -24,27 +29,34 @@
     },
     computed: {
       head () {
-        return this.title + ' - ' + this.plusTitle
+        return this.quotes.title + ' - ' + this.plusTitle
       },
       ...mapState([
+        'users',
         'quotes'
       ]),
       // This below is just an example,
       // you can use mapState to do like this.
       ...mapGetters({
-        all: 'all',
-        title: 'title'
+        userIsPattanai: 'userIsPattanai'
       })
     },
     methods: {
       ...mapActions([
         'getAllQuotes',
-        'changeTitle'
+        'changeQuoteTitle',
+        'addUser'
       ])
     },
     mounted () {
       // console.log(this.$store.state)
       this.getAllQuotes()
+      this.addUser({ name: 'Pattanai' })
+      this.addUser({ name: 'Another' })
+
+      // this.$store.commit('users/ADD_USER', {
+      //   name: 'Someone'
+      // })
 
       // This data is come from mapState
       // console.log(this.quotes.title)
